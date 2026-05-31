@@ -171,7 +171,7 @@ function renderCompanyOverview(s, idx, total) {
 
   const chart = 'setTimeout(function(){'
     + 'var cv=document.getElementById("oc");if(!cv)return;'
-    + 'new Chart(cv.getContext("2d"),{type:"doughnut",data:{labels:["대표이사","임직원","파트너사"],datasets:[{data:[52.35,26.25,21.40],backgroundColor:["#ED1C24","#333333","#FFB400"],borderWidth:0,hoverOffset:6}]},options:{cutout:"68%",responsive:false,plugins:{legend:{display:false},tooltip:{mode:"index",intersect:false,backgroundColor:"#1d1d1f",titleFont:{family:"Pretendard Variable",weight:700},bodyFont:{family:"Pretendard Variable"},padding:10,cornerRadius:8,callbacks:{label:function(c){return c.label+": "+c.raw.toFixed(2)+"%";}}}},animation:{animateRotate:true,duration:1200,easing:"easeOutCubic"}}});'
+    + 'new Chart(cv.getContext("2d"),{type:"doughnut",data:{labels:["대표이사","임직원","파트너사"],datasets:[{data:[52.35,26.25,21.40],backgroundColor:["#ED1C24","#333333","#FFB400"],borderWidth:0,hoverOffset:6}]},options:{cutout:"68%",responsive:false,plugins:{legend:{display:false},tooltip:{backgroundColor:"#1d1d1f",titleFont:{family:"Pretendard Variable",weight:700},bodyFont:{family:"Pretendard Variable"},padding:10,cornerRadius:8,callbacks:{label:function(c){return c.label+": "+c.raw.toFixed(2)+"%";}}}},animation:{animateRotate:true,duration:1200,easing:"easeOutCubic"}}});'
     + '},250);';
 
   return mkS(
