@@ -102,7 +102,9 @@ function clearFsBuffers() {
   fr.forEach(f => { f.srcdoc = ''; });
   fsBuf = 0;
   fr[0].style.setProperty('opacity', '1', 'important');
+  fr[0].style.pointerEvents = 'auto';
   fr[1].style.setProperty('opacity', '0', 'important');
+  fr[1].style.pointerEvents = 'none';
 }
 function renderFs(first) {
   sizeFsIframe();
@@ -110,8 +112,11 @@ function renderFs(first) {
   if (first) {
     // 프레젠테이션 진입: 보이는 버퍼에 바로 렌더 (이전 슬라이드 잔상 없이)
     const front = fr[fsBuf];
+    const back = fr[1 - fsBuf];
     front.style.setProperty('opacity', '1', 'important');
-    fr[1 - fsBuf].style.setProperty('opacity', '0', 'important');
+    front.style.pointerEvents = 'auto';
+    back.style.setProperty('opacity', '0', 'important');
+    back.style.pointerEvents = 'none';
     if (window.renderSlideView) { window.renderSlideView(fsIdx, front); }
     else { front.srcdoc = renderSlide(fsIdx); }
     return;
@@ -122,7 +127,9 @@ function renderFs(first) {
   const reveal = () => {
     if (swapped) return; swapped = true;
     back.style.setProperty('opacity', '1', 'important');
+    back.style.pointerEvents = 'auto';
     front.style.setProperty('opacity', '0', 'important');
+    front.style.pointerEvents = 'none';
     fsBuf = 1 - fsBuf;
   };
   back.addEventListener('load', reveal, { once: true });
