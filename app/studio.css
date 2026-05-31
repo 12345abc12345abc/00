@@ -807,3 +807,43 @@
   .lz-stage { padding-bottom: 6vh; }
   .lz-title { font-size: clamp(40px, 13vh, 110px); }
 }
+
+/* ── 모바일 세로(portrait) 전용: 타이틀·상단 아이콘 겹침 방지 ── */
+@media (max-width: 768px) and (orientation: portrait) {
+  /* Hub: flex-end 대신 위에서부터 자연스럽게 배치 */
+  .hub-stage {
+    justify-content: flex-start;
+    padding-top: 6vh;
+    padding-bottom: 6vh;
+  }
+  .hub-title {
+    font-size: clamp(32px, 9vw, 50px);
+    line-height: 1.1;
+    white-space: normal;
+    word-break: keep-all;
+  }
+  .hub-cards {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 24px;
+    gap: 12px;
+  }
+  .hub-cards-3 {
+    grid-template-columns: 1fr 1fr;
+  }
+  .hub-card {
+    padding: 18px 14px 16px;
+    min-height: 90px;
+  }
+  .hub-card .hc-idx { font-size: 10px; margin-bottom: 4px; }
+  .hub-card .hc-name { font-size: 17px; line-height: 1.25; }
+
+  /* Landing: 위에서부터 배치, 애니메이션 겹침 방지 */
+  .lz-stage {
+    justify-content: flex-start;
+    padding-top: 4vh;
+    padding-bottom: 8vh;
+  }
+  .lz-title { font-size: clamp(44px, 13vw, 72px); }
+  .lz-kicker { margin-bottom: 14px; }
+  .lz-menu { margin-top: 20px; }
+}
