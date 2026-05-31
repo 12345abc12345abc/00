@@ -255,10 +255,8 @@ html[data-static="1"] .a-in, html[data-static="1"] .a-rise, html[data-static="1"
   opacity: 1 !important; transform: none !important; clip-path: none !important; filter: none !important;
 }
 
-/* ── Scroll containers (tables) ── */
-.scroll-y { overflow-y: auto; }
-.scroll-y::-webkit-scrollbar { width: 6px; }
-.scroll-y::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.16); border-radius: 3px; }
+/* ── Scroll containers (tables) — no scrollbars in slide view ── */
+.scroll-y { overflow: hidden; }
 
 /* ── Common typographic helpers ── */
 .kicker {
