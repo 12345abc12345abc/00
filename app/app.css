@@ -775,3 +775,9 @@ textarea.fi { line-height: 1.5; min-height: 56px; font-family: inherit; }
   #ep-body input, #ep-body textarea, #ep-body select { font-size: 16px; }
   #status-bar { flex-wrap: wrap; }
 }
+
+/* ── 가로모드(모바일): iOS 입력창 자동 확대 방지 ── */
+@media (max-width: 900px) and (orientation: landscape) {
+  #ep-body input, #ep-body textarea, #ep-body select { font-size: 16px; }
+  #cb-input, .cbs-q, .cbs-a, .cbs-kw { font-size: 16px; }
+}

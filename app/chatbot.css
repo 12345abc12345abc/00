@@ -221,6 +221,28 @@
   #cb-input, .cbs-q, .cbs-a, .cbs-kw { font-size: 16px; }
 }
 
+/* ── 가로모드(소형 폰): 전체화면 해제 → 플로팅 패널 복원 ── */
+@media (max-width: 768px) and (orientation: landscape) {
+  #cb-launch { height: 60px; padding: 0 22px 0 16px; font-size: 15px; gap: 10px; }
+  #cb-launch svg { width: 24px; height: 24px; }
+  #cb-panel {
+    position: absolute;
+    top: auto; left: auto;
+    right: 8px; bottom: 8px;
+    z-index: 21;
+    width: 360px;
+    max-width: calc(100vw - 32px);
+    height: min(88vh, 380px);
+    max-height: calc(100vh - 56px);
+    border-radius: 20px;
+    transform: translateY(24px) scale(0.98);
+    opacity: 0;
+    transition: opacity 0.26s ease, transform 0.26s cubic-bezier(.22,.61,.36,1);
+    padding-top: 0;
+  }
+  #cb-panel.open { transform: translateY(0) scale(1); opacity: 1; }
+}
+
 /* 노치/홈 인디케이터 safe-area — 런처·패널·풀스크린 편집기 */
 @supports (padding: max(0px)) {
   #cb-launch {

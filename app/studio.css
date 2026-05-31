@@ -808,6 +808,41 @@
   .lz-title { font-size: clamp(40px, 13vh, 110px); }
 }
 
+/* ── 소형 가로 폰(≤768px 폭): max-width 모바일 쿼리가 가로에 덮어씌운 것 복원 ── */
+@media (max-width: 768px) and (orientation: landscape) {
+  /* Hub: 2컬럼 카드 + 중앙 배치 (PC 스타일) */
+  .hub-stage {
+    justify-content: center;
+    padding-top: 48px;
+    padding-bottom: 16px;
+  }
+  .hub-title { font-size: clamp(26px, 6vh, 42px); line-height: 1; }
+  .hub-cards { grid-template-columns: 1fr 1fr; margin-top: 14px; gap: 10px; max-width: none; }
+  .hub-cards-3 { grid-template-columns: 1fr 1fr 1fr; }
+  .hub-card { padding: 12px 14px; flex-direction: column; min-height: 0; }
+  .hub-card .hc-name { font-size: 17px; line-height: 1.2; }
+  .hub-card .hc-idx { font-size: 10px; }
+
+  /* Landing: 수평 메뉴 + 중앙 배치 (PC 스타일) */
+  .lz-stage {
+    justify-content: center;
+    padding-top: 0;
+    padding-bottom: 6vh;
+  }
+  .lz-title { font-size: clamp(30px, 8vh, 60px); line-height: 0.88; }
+  .lz-kicker { margin-bottom: 8px; font-size: 10px; }
+  .lz-menu {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .lz-btn { height: 42px; font-size: 13px; }
+  .lz-lang-select { height: 42px; font-size: 13px; min-width: 140px; }
+  .lz-apply { height: 42px; font-size: 13px; }
+}
+
 /* ── 모바일 세로(portrait) 전용: 타이틀·상단 아이콘 겹침 방지 ── */
 @media (max-width: 768px) and (orientation: portrait) {
   /* Hub: flex-end 대신 위에서부터 자연스럽게 배치 */
