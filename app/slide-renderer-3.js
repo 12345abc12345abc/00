@@ -489,7 +489,7 @@ function renderSemiAnnual(s, idx, total) {
 function renderBacklog(s, idx, total) {
   const d = s.d;
   const rows = (d.items || []).map((it, i) =>
-    '<tr class="a-up d' + Math.min(i + 3, 14) + '" style="border-bottom:1px solid var(--hairline)">'
+    '<tr class="a-up d' + Math.min(i + 3, 20) + '" style="border-bottom:1px solid var(--hairline)">'
     + '<td style="padding:7px 10px;color:var(--ink-muted-48);font-weight:700;font-variant-numeric:tabular-nums;font-size:11px">' + String(it.no).padStart(2, '0') + '</td>'
     + '<td style="padding:7px 10px;color:var(--ink);font-weight:700;font-size:11.5px;letter-spacing:-0.008em">' + esc(it.client) + '</td>'
     + '<td style="padding:7px 10px;color:var(--ieg-red);font-weight:800;font-variant-numeric:tabular-nums;font-size:11.5px;text-align:right;letter-spacing:-0.005em">' + esc(it.amount) + '</td>'

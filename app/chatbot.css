@@ -11,22 +11,22 @@
   z-index: 20;
   display: inline-flex;
   align-items: center;
-  gap: 18px;
-  height: 104px;
-  padding: 0 44px 0 36px;
+  gap: 12px;
+  height: 68px;
+  padding: 0 28px 0 22px;
   border-radius: 999px;
   background: var(--ieg-red);
   color: #fff;
   border: none;
   font-family: inherit;
-  font-size: 26px;
+  font-size: 18px;
   font-weight: 700;
   letter-spacing: -0.01em;
   cursor: pointer;
   box-shadow: 0 14px 36px -10px rgba(237, 28, 36, 0.7);
   transition: transform 0.16s cubic-bezier(.22,.61,.36,1), box-shadow 0.2s, opacity 0.25s;
 }
-#cb-launch svg { width: 42px; height: 42px; }
+#cb-launch svg { width: 28px; height: 28px; }
 #cb-launch:hover { transform: translateY(-3px); box-shadow: 0 18px 46px -10px rgba(237, 28, 36, 0.85); }
 #cb-launch:active { transform: translateY(-1px) scale(0.97); }
 #cb-launch.hidden { opacity: 0; pointer-events: none; transform: translateY(10px); }
