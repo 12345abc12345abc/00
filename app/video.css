@@ -6,16 +6,16 @@
 .hub-card { min-height: 160px; }
 
 @media (max-width: 768px) {
-  .hub-card { min-height: 72px; }
+  .hub-card { min-height: 88px; }
 }
 @media (max-width: 768px) and (orientation: portrait) {
-  .hub-card { min-height: 72px; }
+  .hub-card { min-height: 88px; }
 }
 @media (max-width: 768px) and (orientation: landscape) {
   .hub-card { min-height: 80px; }
 }
 @media (orientation: landscape) and (max-height: 500px) {
-  .hub-card { min-height: 64px; }
+  .hub-card { min-height: 70px; }
 }
 
 /* ── hub-cards-4: 2×2 grid (Edit hub with 4 items) ── */
