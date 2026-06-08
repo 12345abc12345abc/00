@@ -108,8 +108,7 @@
     grid.innerHTML = VD.map((v, i) => {
       const thumb = thumbUrl(v.url);
       const thumbHtml = thumb
-        ? '<img src="' + esc(thumb) + '" alt="' + esc(v.title) + '" loading="lazy"'
-          + ' onerror="this.parentNode.innerHTML=\'<div class=vh-thumb-ph><svg viewBox=\\\"0 0 24 24\\\" fill=\\\"none\\\" stroke=\\\"currentColor\\\" stroke-width=\\\"1.5\\\"><polygon points=\\\"5 3 19 12 5 21 5 3\\\"/></svg></div>\'">'
+        ? '<img src="' + esc(thumb) + '" alt="" loading="lazy">'
         : '<div class="vh-thumb-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>';
       return '<button class="vh-card" data-i="' + i + '">'
         + '<div class="vh-thumb">' + thumbHtml
