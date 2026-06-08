@@ -52,7 +52,6 @@
       + '<div class="vh-body">'
       + '<div class="vh-hero">'
       + '<h1 class="vh-heading"><span class="vh-ieg">IEG</span> VIDEO</h1>'
-      + '<span class="vh-count-badge" id="vh-count">0 VIDEOS</span>'
       + '</div>'
       + '<div class="vh-grid" id="vh-grid"></div>'
       + '</div>';
@@ -94,9 +93,7 @@
 
   function renderHub() {
     const grid = document.getElementById('vh-grid');
-    const countEl = document.getElementById('vh-count');
     if (!grid) return;
-    if (countEl) countEl.textContent = VD.length + (VD.length === 1 ? ' VIDEO' : ' VIDEOS');
 
     if (!VD.length) {
       grid.innerHTML =
@@ -208,6 +205,7 @@
       + '<div class="vs-actions">'
       + '<button class="vs-btn primary" id="vs-add">+ 영상 추가</button>'
       + '<span class="bar-sep"></span>'
+      + '<button class="vs-btn" id="vs-export">수정 데이터 내보내기</button>'
       + '<button class="vs-btn" id="vs-reset">초기화</button>'
       + '</div>'
       + '</div>'
@@ -225,11 +223,32 @@
       save();
       renderEditor(true);
     };
+    el.querySelector('#vs-export').onclick = exportData;
     el.querySelector('#vs-reset').onclick = () => {
       if (confirm('영상 목록을 기본값으로 초기화합니다. 계속하시겠습니까?')) {
         VD = defaults(); save(); renderEditor();
       }
     };
+  }
+
+  function exportData() {
+    const payload = {
+      app: 'IEG VIDEO',
+      kind: 'video-content',
+      version: 1,
+      exportedAt: new Date().toISOString(),
+      count: VD.length,
+      videos: VD
+    };
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'IEG-VIDEO-content.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
 
   function openEditor() {
