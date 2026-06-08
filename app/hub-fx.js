@@ -206,6 +206,31 @@
       gone ? stop() : start();
     }).observe(hub, { attributes: true, attributeFilter: ['style', 'class'] });
 
+    /* ── 3D card tilt + spotlight (pointer devices only) ── */
+    if (window.matchMedia('(hover: hover)').matches) {
+      document.querySelectorAll('.hub-card').forEach(function (card) {
+        card.addEventListener('mousemove', function (e) {
+          const r = this.getBoundingClientRect();
+          const x = e.clientX - r.left, y = e.clientY - r.top;
+          const cx = r.width / 2, cy = r.height / 2;
+          const rx = ((y - cy) / cy) * -11;
+          const ry = ((x - cx) / cx) * 11;
+          this.style.transition = 'border-color 0.12s, background 0.12s, box-shadow 0.12s';
+          this.style.transform = 'perspective(700px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) translateZ(12px)';
+          this.style.boxShadow = '0 22px 55px -14px rgba(0,0,0,0.75), 0 0 28px -8px rgba(237,28,36,0.28), inset 0 1px 0 rgba(255,255,255,0.14)';
+          this.style.setProperty('--mx', x + 'px');
+          this.style.setProperty('--my', y + 'px');
+        });
+        card.addEventListener('mouseleave', function () {
+          this.style.transition = 'transform 0.48s cubic-bezier(.22,.61,.36,1), border-color 0.2s, background 0.2s, box-shadow 0.2s';
+          this.style.transform = '';
+          this.style.boxShadow = '';
+          this.style.removeProperty('--mx');
+          this.style.removeProperty('--my');
+        });
+      });
+    }
+
     /* ── Global ESC navigation (편집 모드 제외) ── */
     document.addEventListener('keydown', function (e) {
       if (e.key !== 'Escape') return;

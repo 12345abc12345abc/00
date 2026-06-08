@@ -15,6 +15,31 @@
 /* ── Equal-height hub cards (모든 카드 동일 크기) ── */
 .hub-card { min-height: 160px; }
 
+/* ── 3D tilt + spotlight ── */
+.hub-cards { perspective: 1100px; }
+
+/* spotlight radial — driven by JS --mx/--my custom props */
+.hub-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    320px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255,210,210,0.16) 0%,
+    rgba(255,255,255,0.07) 38%,
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.22s;
+  pointer-events: none;
+  z-index: 0;
+}
+.hub-card:hover::before { opacity: 1; }
+
+/* keep text above spotlight layer */
+.hub-card > * { position: relative; z-index: 1; }
+
 @media (max-width: 768px) {
   .hub-card { min-height: 88px; }
 }
