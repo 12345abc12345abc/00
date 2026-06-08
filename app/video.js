@@ -75,7 +75,8 @@
     void vh.offsetWidth;
     vh.classList.remove('hidden');
   }
-  window.openVideoHub = openVideoHub;
+  window.openVideoHub  = openVideoHub;
+  window.closeVideoHub = closeVideoHub;
 
   function closeVideoHub() {
     const vh = document.getElementById('video-hub');

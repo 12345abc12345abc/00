@@ -205,5 +205,40 @@
       const gone = hub.classList.contains('hidden') || hub.style.display === 'none';
       gone ? stop() : start();
     }).observe(hub, { attributes: true, attributeFilter: ['style', 'class'] });
+
+    /* ── Global ESC navigation (편집 모드 제외) ── */
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+
+      // 편집 모드 계열 → 무시
+      if (document.body.classList.contains('studio-mode')) return;
+      const vidStudio = document.getElementById('vid-studio');
+      if (vidStudio && vidStudio.classList.contains('show')) return;
+      const cbStudio = document.getElementById('cb-studio');
+      if (cbStudio && cbStudio.classList.contains('show')) return;
+      const editHub = document.getElementById('edit-hub');
+      if (editHub && editHub.style.display !== 'none' && !editHub.classList.contains('hidden')) return;
+
+      // 자체 ESC 핸들러가 있는 오버레이 → 무시 (중복 방지)
+      const fsOv = document.getElementById('fs-ov');
+      if (fsOv && fsOv.style.display !== 'none') return;
+      const vpOv = document.getElementById('vp-ov');
+      if (vpOv && vpOv.style.display !== 'none') return;
+      const pwGate = document.getElementById('pw-gate');
+      if (pwGate && pwGate.classList.contains('show')) return;
+
+      // VIDEO 허브 → 메인 허브
+      const videoHub = document.getElementById('video-hub');
+      if (videoHub && videoHub.style.display !== 'none' && !videoHub.classList.contains('hidden')) {
+        if (window.closeVideoHub) window.closeVideoHub();
+        return;
+      }
+
+      // 랜딩(덱 타이틀) → 메인 허브
+      const landing = document.getElementById('landing');
+      if (landing && landing.style.display !== 'none' && !landing.classList.contains('hidden')) {
+        if (window.backToHub) window.backToHub();
+      }
+    });
   });
 })();
