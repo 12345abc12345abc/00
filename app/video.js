@@ -13,6 +13,7 @@
     return defaults();
   }
   let VD = load();
+  let vsDragSrc = null;
   function save() { try { localStorage.setItem(KEY, JSON.stringify(VD)); } catch (e) {} }
   window.vdResetDefaults = function () { VD = defaults(); save(); renderEditor(); };
 
@@ -277,6 +278,7 @@
         : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22"><polygon points="5 3 19 12 5 21 5 3"/></svg>';
       return '<div class="vs-item" data-i="' + i + '">'
         + '<div class="vs-item-hdr">'
+        + '<span class="vs-drag" title="드래그하여 순서 변경">⠿</span>'
         + '<span class="vs-idx">VIDEO ' + String(i + 1).padStart(2, '0') + '</span>'
         + '<button class="vs-del" title="삭제">✕</button>'
         + '</div>'
@@ -316,6 +318,44 @@
         });
       });
       item.querySelector('.vs-del').onclick = () => { VD.splice(i, 1); save(); renderEditor(); };
+    });
+
+    // Drag-to-reorder
+    list.querySelectorAll('.vs-item').forEach(item => {
+      const handle = item.querySelector('.vs-drag');
+      if (!handle) return;
+      handle.addEventListener('mousedown', () => { item.draggable = true; });
+      item.addEventListener('dragstart', e => {
+        if (!item.draggable) { e.preventDefault(); return; }
+        vsDragSrc = item;
+        e.dataTransfer.effectAllowed = 'move';
+        setTimeout(() => item.classList.add('dragging'), 0);
+      });
+      item.addEventListener('dragend', () => {
+        item.draggable = false;
+        item.classList.remove('dragging');
+        list.querySelectorAll('.vs-item').forEach(el => el.classList.remove('drag-over'));
+      });
+      item.addEventListener('dragover', e => {
+        e.preventDefault();
+        if (item !== vsDragSrc) {
+          list.querySelectorAll('.vs-item').forEach(el => el.classList.remove('drag-over'));
+          item.classList.add('drag-over');
+        }
+      });
+      item.addEventListener('dragleave', e => {
+        if (!item.contains(e.relatedTarget)) item.classList.remove('drag-over');
+      });
+      item.addEventListener('drop', e => {
+        e.preventDefault();
+        if (!vsDragSrc || vsDragSrc === item) return;
+        const from = +vsDragSrc.dataset.i;
+        const to = +item.dataset.i;
+        const [moved] = VD.splice(from, 1);
+        VD.splice(to, 0, moved);
+        save();
+        renderEditor();
+      });
     });
 
     if (focusFirst) {

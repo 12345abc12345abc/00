@@ -17,6 +17,7 @@
     return defaults();
   }
   let CB = load();
+  let cbDragSrc = null;
   function save() { try { localStorage.setItem(KEY, JSON.stringify(CB)); } catch (e) {} }
   window.cbResetDefaults = function () { CB = defaults(); save(); renderEditor(); };
 
@@ -197,6 +198,7 @@
     wrap.innerHTML = CB.map((it, i) =>
       '<div class="cbs-item" data-i="' + i + '">'
       + '<div class="cbs-row1">'
+      + '<span class="cbs-drag" title="드래그하여 순서 변경">⠿</span>'
       + '<span class="cbs-idx">' + String(i + 1).padStart(2, '0') + '</span>'
       + '<input class="cbs-q" placeholder="질문" value="' + esc(it.q) + '" data-f="q">'
       + '<label class="cbs-imp">중요도<input type="number" min="1" max="5" value="' + (it.imp || 3) + '" data-f="imp"></label>'
@@ -219,6 +221,45 @@
       });
       item.querySelector('.cbs-del').onclick = () => { CB.splice(i, 1); save(); renderEditor(); };
     });
+
+    // Drag-to-reorder
+    Array.prototype.forEach.call(wrap.querySelectorAll('.cbs-item'), item => {
+      const handle = item.querySelector('.cbs-drag');
+      if (!handle) return;
+      handle.addEventListener('mousedown', () => { item.draggable = true; });
+      item.addEventListener('dragstart', e => {
+        if (!item.draggable) { e.preventDefault(); return; }
+        cbDragSrc = item;
+        e.dataTransfer.effectAllowed = 'move';
+        setTimeout(() => item.classList.add('dragging'), 0);
+      });
+      item.addEventListener('dragend', () => {
+        item.draggable = false;
+        item.classList.remove('dragging');
+        Array.prototype.forEach.call(wrap.querySelectorAll('.cbs-item'), el => el.classList.remove('drag-over'));
+      });
+      item.addEventListener('dragover', e => {
+        e.preventDefault();
+        if (item !== cbDragSrc) {
+          Array.prototype.forEach.call(wrap.querySelectorAll('.cbs-item'), el => el.classList.remove('drag-over'));
+          item.classList.add('drag-over');
+        }
+      });
+      item.addEventListener('dragleave', e => {
+        if (!item.contains(e.relatedTarget)) item.classList.remove('drag-over');
+      });
+      item.addEventListener('drop', e => {
+        e.preventDefault();
+        if (!cbDragSrc || cbDragSrc === item) return;
+        const from = +cbDragSrc.dataset.i;
+        const to = +item.dataset.i;
+        const [moved] = CB.splice(from, 1);
+        CB.splice(to, 0, moved);
+        save();
+        renderEditor();
+      });
+    });
+
     if (focusFirst) { const f = wrap.querySelector('.cbs-q'); if (f) f.focus(); wrap.scrollTop = 0; }
   }
 

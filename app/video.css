@@ -53,14 +53,33 @@
   .hub-card { min-height: 70px; }
 }
 
-/* ── hub-cards-4: 2×2 grid (Edit hub with 4 items) ── */
+/* ── hub-cards-4: 4-in-a-row (Edit hub) ── */
 .hub-cards-4 {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   margin-top: 44px;
-  max-width: 700px;
+  max-width: 1040px;
 }
+
+/* ── Drag-to-reorder handles & states ── */
+.vs-drag, .cbs-drag {
+  flex-shrink: 0;
+  width: 20px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  letter-spacing: -2px;
+  user-select: none;
+  transition: color 0.16s;
+  margin-right: -2px;
+}
+.vs-drag { color: rgba(255,255,255,0.2); cursor: grab; }
+.vs-drag:hover { color: rgba(255,255,255,0.55); }
+.vs-item.dragging { opacity: 0.35; border-style: dashed; }
+.vs-item.drag-over { border-color: var(--ieg-red, #ED1C24) !important; background: rgba(237,28,36,0.07); }
 
 
 /* ── Video Hub screen ── */
@@ -577,6 +596,7 @@
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .hub-cards-4 { grid-template-columns: 1fr 1fr; max-width: none; }
+  .vs-drag { display: none; }
   .vh-top { padding: 18px 20px; }
   .vh-body { padding: 0 20px 30px; }
   .vh-hero { margin-bottom: 22px; }

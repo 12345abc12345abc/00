@@ -186,8 +186,28 @@
 .cbs-del { width: 34px; height: 34px; flex-shrink: 0; border-radius: 8px; border: 1px solid var(--hairline, #e0e0e0); background: #fff; color: var(--ink-muted-48, #7a7a7a); cursor: pointer; font-size: 13px; transition: all 0.16s; }
 .cbs-del:hover { background: var(--ieg-red); color: #fff; border-color: var(--ieg-red); }
 
+.cbs-drag {
+  flex-shrink: 0;
+  width: 20px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  letter-spacing: -2px;
+  color: rgba(0,0,0,0.18);
+  cursor: grab;
+  user-select: none;
+  transition: color 0.16s;
+  margin-right: -2px;
+}
+.cbs-drag:hover { color: rgba(0,0,0,0.45); }
+.cbs-item.dragging { opacity: 0.35; border-style: dashed; }
+.cbs-item.drag-over { border-color: var(--ieg-red) !important; background: rgba(237,28,36,0.04); }
+
 /* ── Mobile ── */
 @media (max-width: 768px) {
+  .cbs-drag { display: none; }
   /* 버튼 소형화 */
   #cb-launch { right: 16px; bottom: 16px; height: 52px; padding: 0 18px 0 14px; font-size: 14px; gap: 8px; }
   #cb-launch svg { width: 20px; height: 20px; }
