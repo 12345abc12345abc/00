@@ -242,26 +242,27 @@
       const cbStudio = document.getElementById('cb-studio');
       if (cbStudio && cbStudio.classList.contains('show')) return;
       const editHub = document.getElementById('edit-hub');
-      if (editHub && editHub.style.display !== 'none' && !editHub.classList.contains('hidden')) return;
+      if (editHub && editHub.style.display === 'flex') return;
 
-      // 자체 ESC 핸들러가 있는 오버레이 → 무시 (중복 방지)
-      const fsOv = document.getElementById('fs-ov');
-      if (fsOv && fsOv.style.display !== 'none') return;
+      // 자체 ESC 핸들러가 있는 오버레이 → 무시
+      // fsActive: app.js 전역 변수 (전체화면 슬라이드쇼 진행 중)
+      if (typeof fsActive !== 'undefined' && fsActive) return;
+      // #vp-ov / #vp-ov 는 JS로 display='flex' 세팅되므로 inline style 비교
       const vpOv = document.getElementById('vp-ov');
-      if (vpOv && vpOv.style.display !== 'none') return;
+      if (vpOv && vpOv.style.display === 'flex') return;
       const pwGate = document.getElementById('pw-gate');
       if (pwGate && pwGate.classList.contains('show')) return;
 
       // VIDEO 허브 → 메인 허브
       const videoHub = document.getElementById('video-hub');
-      if (videoHub && videoHub.style.display !== 'none' && !videoHub.classList.contains('hidden')) {
+      if (videoHub && videoHub.style.display === 'flex' && !videoHub.classList.contains('hidden')) {
         if (window.closeVideoHub) window.closeVideoHub();
         return;
       }
 
       // 랜딩(덱 타이틀) → 메인 허브
       const landing = document.getElementById('landing');
-      if (landing && landing.style.display !== 'none' && !landing.classList.contains('hidden')) {
+      if (landing && landing.style.display === 'flex' && !landing.classList.contains('hidden')) {
         if (window.backToHub) window.backToHub();
       }
     });
