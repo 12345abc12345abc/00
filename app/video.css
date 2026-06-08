@@ -2,6 +2,22 @@
    IEG INSIGHT — Video Hub / Player / Editor
    ───────────────────────────────────────────── */
 
+/* ── Equal-height hub cards (모든 카드 동일 크기) ── */
+.hub-card { min-height: 160px; }
+
+@media (max-width: 768px) {
+  .hub-card { min-height: 72px; }
+}
+@media (max-width: 768px) and (orientation: portrait) {
+  .hub-card { min-height: 72px; }
+}
+@media (max-width: 768px) and (orientation: landscape) {
+  .hub-card { min-height: 80px; }
+}
+@media (orientation: landscape) and (max-height: 500px) {
+  .hub-card { min-height: 64px; }
+}
+
 /* ── hub-cards-4: 2×2 grid (Edit hub with 4 items) ── */
 .hub-cards-4 {
   display: grid;
