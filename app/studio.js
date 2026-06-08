@@ -491,18 +491,24 @@ function submitPw() {
 window.submitPw = submitPw;
 
 /* ── 편집 모드 선택 화면 (COMPANY / IR / 챗봇) ── */
+function editHubEscHandler(e) {
+  if (e.key === 'Escape') closeEditHub();
+}
+
 function showEditHub() {
-  const e = document.getElementById('edit-hub');
-  if (!e) return;
-  e.style.display = 'flex';
-  e.classList.remove('hidden');
-  void e.offsetWidth;
+  const el = document.getElementById('edit-hub');
+  if (!el) return;
+  el.style.display = 'flex';
+  el.classList.remove('hidden');
+  void el.offsetWidth;
+  document.addEventListener('keydown', editHubEscHandler);
 }
 window.showEditHub = showEditHub;
 
 function closeEditHub() {
-  const e = document.getElementById('edit-hub');
-  if (!e) return;
+  const el = document.getElementById('edit-hub');
+  if (!el) return;
+  document.removeEventListener('keydown', editHubEscHandler);
   // IEG INSIGHT 허브를 확실히 복원 (편집기 진입 시 #hub 가 숨겨졌을 수 있음)
   if (typeof fsActive !== 'undefined' && fsActive && typeof endShow === 'function') { try { endShow(); } catch (err) {} }
   document.body.classList.remove('studio-mode');
@@ -511,8 +517,8 @@ function closeEditHub() {
   if (l) { l.classList.add('hidden'); l.style.display = 'none'; l.classList.remove('settled'); }
   const hub = document.getElementById('hub');
   if (hub) { hub.style.display = 'flex'; hub.classList.remove('hidden'); }
-  e.classList.add('hidden');
-  setTimeout(() => { e.style.display = 'none'; e.classList.remove('hidden'); }, 420);
+  el.classList.add('hidden');
+  setTimeout(() => { el.style.display = 'none'; el.classList.remove('hidden'); }, 420);
 }
 window.closeEditHub = closeEditHub;
 
