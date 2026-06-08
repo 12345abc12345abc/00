@@ -516,11 +516,16 @@ function closeEditHub() {
 }
 window.closeEditHub = closeEditHub;
 
-/* 편집 대상 선택 — 덱이면 스튜디오 편집기로, 챗봇이면 챗봇 편집기 모달 */
+/* 편집 대상 선택 — 덱이면 스튜디오 편집기로, 챗봇/비디오면 각 편집기 모달 */
 function editChoose(id) {
   if (id === 'chatbot') {
     const e = document.getElementById('edit-hub'); if (e) { e.style.display = 'none'; e.classList.remove('hidden'); }
     if (window.openChatbotEditor) window.openChatbotEditor();
+    return;
+  }
+  if (id === 'video') {
+    const e = document.getElementById('edit-hub'); if (e) { e.style.display = 'none'; e.classList.remove('hidden'); }
+    if (window.openVideoEditor) window.openVideoEditor();
     return;
   }
   if (!window.DECKS || !window.DECKS[id]) return;

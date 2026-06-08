@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="app.css">
 <link rel="stylesheet" href="studio.css">
 <link rel="stylesheet" href="chatbot.css">
+<link rel="stylesheet" href="video.css">
 </head>
 <body>
 
@@ -22,7 +23,7 @@
   </div>
   <div class="hub-stage">
     <h1 class="hub-title"><span class="t-ieg">IEG</span> <span class="hub-insight">INSIGHT</span></h1>
-    <div class="hub-cards">
+    <div class="hub-cards hub-cards-3">
       <button class="hub-card" onclick="chooseDeck('company')">
         <span class="hc-idx">01</span>
         <span class="hc-name">COMPANY<br>PROFILE</span>
@@ -30,6 +31,10 @@
       <button class="hub-card" onclick="chooseDeck('ir')">
         <span class="hc-idx">02</span>
         <span class="hc-name">INVESTOR<br>RELATIONS</span>
+      </button>
+      <button class="hub-card video-card" onclick="openVideoHub()">
+        <span class="hc-idx">03</span>
+        <span class="hc-name">VIDEO</span>
       </button>
     </div>
   </div>
@@ -46,7 +51,7 @@
   </div>
   <div class="hub-stage">
     <h1 class="hub-title"><span class="hub-insight">EDIT</span></h1>
-    <div class="hub-cards hub-cards-3">
+    <div class="hub-cards hub-cards-4">
       <button class="hub-card" onclick="editChoose('company')">
         <span class="hc-idx">01</span>
         <span class="hc-name">COMPANY<br>PROFILE</span>
@@ -55,8 +60,12 @@
         <span class="hc-idx">02</span>
         <span class="hc-name">INVESTOR<br>RELATIONS</span>
       </button>
-      <button class="hub-card" onclick="editChoose('chatbot')">
+      <button class="hub-card video-card" onclick="editChoose('video')">
         <span class="hc-idx">03</span>
+        <span class="hc-name">VIDEO</span>
+      </button>
+      <button class="hub-card" onclick="editChoose('chatbot')">
+        <span class="hc-idx">04</span>
         <span class="hc-name">CHATBOT</span>
       </button>
     </div>
@@ -214,6 +223,7 @@
 <script src="slide-data.js"></script>
 <script src="company-data.js"></script>
 <script src="chatbot-data.js"></script>
+<script src="video-data.js"></script>
 <script src="slide-styles.js"></script>
 <script src="slide-renderer-1.js"></script>
 <script src="slide-renderer-2.js"></script>
@@ -224,5 +234,6 @@
 <script src="studio.js"></script>
 <script src="decks.js"></script>
 <script src="chatbot.js"></script>
+<script src="video.js"></script>
 </body>
 </html>
