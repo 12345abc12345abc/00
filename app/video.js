@@ -9,7 +9,7 @@
 
   function defaults() { return JSON.parse(JSON.stringify(window.VIDEO_DATA || [])); }
   function load() {
-    try { const s = localStorage.getItem(KEY); if (s) { const d = JSON.parse(s); if (Array.isArray(d)) return d; } } catch (e) {}
+    try { const s = localStorage.getItem(KEY); if (s) { const d = JSON.parse(s); if (Array.isArray(d) && d.length > 0) return d; } } catch (e) {}
     return defaults();
   }
   let VD = load();
