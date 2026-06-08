@@ -11,18 +11,6 @@
   max-width: 700px;
 }
 
-/* ── Video hub card accent (lime/gold) ── */
-.hub-card.video-card {
-  background: rgba(255, 180, 0, 0.06);
-  border-color: rgba(255, 180, 0, 0.28);
-}
-.hub-card.video-card:hover {
-  background: rgba(255, 180, 0, 0.13);
-  border-color: rgba(255, 180, 0, 0.65);
-  box-shadow: 0 16px 44px -12px rgba(255, 180, 0, 0.38);
-  transform: translateY(-4px);
-}
-.hub-card.video-card .hc-idx { color: rgba(255, 180, 0, 0.65); }
 
 /* ── Video Hub screen ── */
 #video-hub {
@@ -339,7 +327,7 @@
   position: fixed;
   inset: 0;
   background: #0f0f12;
-  z-index: 8500;
+  z-index: 9800;
   display: none;
   flex-direction: column;
 }
