@@ -187,6 +187,7 @@
     if (m) m.classList.remove('show');
   }
   window.openChatbotEditor = openEditor;
+  window.closeChatbotPanel = function () { togglePanel(false); };
 
   function renderEditor(focusFirst) {
     const m = document.getElementById('cb-studio'); if (!m) return;

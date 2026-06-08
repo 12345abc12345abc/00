@@ -253,6 +253,13 @@
       const pwGate = document.getElementById('pw-gate');
       if (pwGate && pwGate.classList.contains('show')) return;
 
+      // 챗봇 패널 닫기
+      const cbPanel = document.getElementById('cb-panel');
+      if (cbPanel && cbPanel.classList.contains('open')) {
+        if (window.closeChatbotPanel) window.closeChatbotPanel();
+        return;
+      }
+
       // VIDEO 허브 → 메인 허브
       const videoHub = document.getElementById('video-hub');
       if (videoHub && videoHub.style.display === 'flex' && !videoHub.classList.contains('hidden')) {
