@@ -2,6 +2,16 @@
    IEG INSIGHT — Video Hub / Player / Editor
    ───────────────────────────────────────────── */
 
+/* ── Hub particle canvas ── */
+#hub-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
 /* ── Equal-height hub cards (모든 카드 동일 크기) ── */
 .hub-card { min-height: 160px; }
 
