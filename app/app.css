@@ -75,6 +75,7 @@ button {
   border: none;
   background: none;
   color: inherit;
+  padding: 0;
 }
 
 /* ── Top bar ── */
