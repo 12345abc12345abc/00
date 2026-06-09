@@ -348,6 +348,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  line-height: 1;
   cursor: pointer;
   transition: background 0.18s, border-color 0.18s, color 0.18s, transform 0.12s;
 }
