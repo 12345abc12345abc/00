@@ -282,6 +282,10 @@
     right: max(20px, env(safe-area-inset-right));
     bottom: max(20px, env(safe-area-inset-bottom));
   }
+  #cb-panel {
+    right: max(20px, env(safe-area-inset-right));
+    bottom: max(20px, env(safe-area-inset-bottom));
+  }
   @media (max-width: 768px) {
     #cb-launch { right: max(16px, env(safe-area-inset-right)); bottom: max(16px, calc(env(safe-area-inset-bottom) + 4px)); }
     /* 전체화면 패널: 노치/홈 인디케이터 여백 */
