@@ -337,6 +337,7 @@
   text-overflow: ellipsis;
 }
 .vp-close {
+  position: relative;
   flex-shrink: 0;
   width: 40px;
   height: 40px;
@@ -352,6 +353,19 @@
   cursor: pointer;
   transition: background 0.18s, border-color 0.18s, color 0.18s, transform 0.12s;
 }
+.vp-close::before,
+.vp-close::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 1.5px;
+  background: currentColor;
+  border-radius: 1px;
+}
+.vp-close::before { transform: translate(-50%, -50%) rotate(45deg); }
+.vp-close::after  { transform: translate(-50%, -50%) rotate(-45deg); }
 .vp-close:hover { background: var(--ieg-red, #ED1C24); border-color: var(--ieg-red, #ED1C24); color: #fff; }
 .vp-close:active { transform: scale(0.9); }
 

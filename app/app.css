@@ -526,6 +526,19 @@ textarea.fi { line-height: 1.5; min-height: 56px; font-family: inherit; }
   opacity: 0;
   pointer-events: none;
 }
+#fs-cl::before,
+#fs-cl::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 1.5px;
+  background: currentColor;
+  border-radius: 1px;
+}
+#fs-cl::before { transform: translate(-50%, -50%) rotate(45deg); }
+#fs-cl::after  { transform: translate(-50%, -50%) rotate(-45deg); }
 #fs-cl:hover { background: var(--ieg-red); border-color: var(--ieg-red); }
 #fs-prv, #fs-nxt {
   position: absolute;

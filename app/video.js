@@ -141,7 +141,7 @@
       + '<div class="vp-eyebrow">IEG VIDEO</div>'
       + '<div class="vp-main-title" id="vp-title"></div>'
       + '</div>'
-      + '<button class="vp-close" id="vp-close" aria-label="닫기">✕</button>'
+      + '<button class="vp-close" id="vp-close" aria-label="닫기"></button>'
       + '</div>'
       + '<div class="vp-frame-wrap" id="vp-frame-wrap"></div>'
       + '<div class="vp-footer"><div class="vp-desc-text" id="vp-desc"></div></div>'
