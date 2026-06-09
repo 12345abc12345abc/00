@@ -48,7 +48,7 @@
   <div class="lz-beam"></div>
   <div class="lz-scan"></div>
   <div class="lz-top hub-top">
-    <button class="lz-home" onclick="closeEditHub()" title="IEG INSIGHT" aria-label="IEG INSIGHT">⌂</button>
+    <button class="lz-home" onclick="closeEditHub()" title="IEG INSIGHT" aria-label="IEG INSIGHT"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></button>
   </div>
   <div class="hub-stage">
     <h1 class="hub-title"><span class="hub-insight">EDIT</span></h1>
@@ -81,7 +81,7 @@
   <div class="lz-scan"></div>
 
   <div class="lz-top">
-    <button class="lz-home" onclick="backToHub()" title="IEG INSIGHT" aria-label="IEG INSIGHT">⌂</button>
+    <button class="lz-home" onclick="backToHub()" title="IEG INSIGHT" aria-label="IEG INSIGHT"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></button>
   </div>
 
   <div class="lz-stage">
@@ -93,7 +93,7 @@
 
     <div class="lz-menu">
       <button class="lz-btn primary" id="lz-present" onclick="enterStudio(true)">
-        슬라이드 쇼 <span class="lz-ar">›</span>
+        슬라이드 쇼 <span class="lz-ar"><svg width="7" height="12" viewBox="0 0 7 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 1 6 6 1 11"/></svg></span>
       </button>
       <select class="lz-lang-select" aria-label="언어 선택" onchange="stageLang(this.value)"></select>
       <button class="lz-apply" id="lz-apply" onclick="applyLang()">적용</button>
@@ -119,7 +119,7 @@
 <!-- ───────── Studio chrome ───────── -->
 <div id="topbar">
   <div class="brand">
-    <button class="btn btn-ghost home-btn" onclick="backToEditHub()" title="편집 선택으로"><span class="home-ar">‹</span> 뒤로</button>
+    <button class="btn btn-ghost home-btn" onclick="backToEditHub()" title="편집 선택으로"><span class="home-ar"><svg width="7" height="12" viewBox="0 0 7 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 1 1 6 6 11"/></svg></span> 뒤로</button>
     <div class="brand-text"><span class="brand-ieg">IEG</span> INVESTOR RELATIONS</div>
   </div>
   <div class="bar-actions">
@@ -144,13 +144,13 @@
   <section id="preview-area">
     <div id="stage">
       <button class="nav-arr" id="arr-prev" onclick="nav(-1)" aria-label="이전">
-        <span class="arr-icon">‹</span>
+        <span class="arr-icon"><svg width="10" height="17" viewBox="0 0 10 17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="8 1 1 8.5 8 16"/></svg></span>
       </button>
       <div id="slide-wrap">
         <iframe id="sf" scrolling="no" title="slide preview"></iframe>
       </div>
       <button class="nav-arr" id="arr-next" onclick="nav(1)" aria-label="다음">
-        <span class="arr-icon">›</span>
+        <span class="arr-icon"><svg width="10" height="17" viewBox="0 0 10 17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 1 9 8.5 2 16"/></svg></span>
       </button>
     </div>
     <div id="status-bar">
@@ -183,8 +183,8 @@
   <div id="fs-hit"></div>
   <div id="fs-inf"></div>
   <button id="fs-cl" onclick="endShow()" aria-label="닫기"></button>
-  <button id="fs-prv" onclick="fsNav(-1)" aria-label="이전">‹</button>
-  <button id="fs-nxt" onclick="fsNav(1)" aria-label="다음">›</button>
+  <button id="fs-prv" onclick="fsNav(-1)" aria-label="이전"><svg width="10" height="17" viewBox="0 0 10 17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="8 1 1 8.5 8 16"/></svg></button>
+  <button id="fs-nxt" onclick="fsNav(1)" aria-label="다음"><svg width="10" height="17" viewBox="0 0 10 17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 1 9 8.5 2 16"/></svg></button>
 </div>
 
 <!-- 모바일 하단 탭바 (편집 모드 전용) -->

@@ -64,7 +64,7 @@
     panel.innerHTML =
       '<div class="cb-head">'
       + '<div class="cb-head-t"><span class="cb-dot"></span>IEG CHATBOT</div>'
-      + '<button class="cb-x" aria-label="닫기">✕</button>'
+      + '<button class="cb-x" aria-label="닫기"></button>'
       + '</div>'
       + '<div class="cb-log" id="cb-log"></div>'
       + '<div class="cb-sug" id="cb-sug"></div>'
@@ -152,7 +152,7 @@
     m.innerHTML =
       '<div class="cbs-top">'
       + '<div class="cbs-brand">'
-      + '<button class="cbs-back" id="cbs-home" title="뒤로" aria-label="뒤로"><span class="cbs-back-ar">‹</span> 뒤로</button>'
+      + '<button class="cbs-back" id="cbs-home" title="뒤로" aria-label="뒤로"><span class="cbs-back-ar"><svg width="7" height="12" viewBox="0 0 7 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 1 1 6 6 11"/></svg></span> 뒤로</button>'
       + '<div class="cbs-brand-text"><span class="brand-ieg">IEG</span> CHATBOT</div>'
       + '</div>'
       + '<div class="cbs-actions">'
@@ -198,11 +198,11 @@
     wrap.innerHTML = CB.map((it, i) =>
       '<div class="cbs-item" data-i="' + i + '">'
       + '<div class="cbs-row1">'
-      + '<span class="cbs-drag" title="드래그하여 순서 변경">⠿</span>'
+      + '<span class="cbs-drag" title="드래그하여 순서 변경"><svg width="10" height="14" viewBox="0 0 10 14" fill="currentColor" aria-hidden="true"><circle cx="3" cy="2.5" r="1.2"/><circle cx="7" cy="2.5" r="1.2"/><circle cx="3" cy="7" r="1.2"/><circle cx="7" cy="7" r="1.2"/><circle cx="3" cy="11.5" r="1.2"/><circle cx="7" cy="11.5" r="1.2"/></svg></span>'
       + '<span class="cbs-idx">' + String(i + 1).padStart(2, '0') + '</span>'
       + '<input class="cbs-q" placeholder="질문" value="' + esc(it.q) + '" data-f="q">'
       + '<label class="cbs-imp">중요도<input type="number" min="1" max="5" value="' + (it.imp || 3) + '" data-f="imp"></label>'
-      + '<button class="cbs-del" title="삭제">✕</button>'
+      + '<button class="cbs-del" title="삭제"></button>'
       + '</div>'
       + '<textarea class="cbs-a" rows="2" placeholder="답변" data-f="a">' + esc(it.a) + '</textarea>'
       + '<input class="cbs-kw" placeholder="키워드 (쉼표로 구분)" value="' + esc((it.kw || []).join(', ')) + '" data-f="kw">'

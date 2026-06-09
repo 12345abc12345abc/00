@@ -229,7 +229,7 @@
   color: rgba(255,255,255,0.45);
   font-variant-numeric: tabular-nums;
 }
-.lz-btn .lz-ar { font-size: 18px; opacity: 0.55; transition: transform 0.28s cubic-bezier(.34,1.56,.64,1), opacity 0.2s; }
+.lz-btn .lz-ar { display: flex; align-items: center; opacity: 0.55; transition: transform 0.28s cubic-bezier(.34,1.56,.64,1), opacity 0.2s; }
 .lz-btn:hover { transform: translateY(-5px); background: rgba(255,255,255,0.11); border-color: rgba(255,255,255,0.32); box-shadow: 0 18px 44px -10px rgba(0,0,0,0.48); }
 .lz-btn:hover .lz-ar { transform: translateX(7px); opacity: 1; }
 .lz-btn:active { transform: translateY(-2px) scale(0.97); transition-duration: 0.08s; }
@@ -792,8 +792,6 @@
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.16);
   color: rgba(255,255,255,0.82);
-  font-size: 19px;
-  line-height: 1;
   cursor: pointer;
   transition: all 0.18s;
 }

@@ -66,10 +66,17 @@
 .cb-head-t { display: flex; align-items: center; gap: 9px; color: #fff; font-size: 14px; font-weight: 800; letter-spacing: -0.01em; }
 .cb-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ieg-lime); box-shadow: 0 0 10px var(--ieg-lime); }
 .cb-x {
+  position: relative;
   width: 30px; height: 30px; border-radius: 8px; border: none;
   background: rgba(255, 255, 255, 0.08); color: rgba(255, 255, 255, 0.7);
-  cursor: pointer; font-size: 14px; transition: background 0.16s, color 0.16s;
+  cursor: pointer; transition: background 0.16s, color 0.16s;
 }
+.cb-x::before, .cb-x::after {
+  content: ''; position: absolute; top: 50%; left: 50%;
+  width: 11px; height: 1.5px; background: currentColor; border-radius: 1px;
+}
+.cb-x::before { transform: translate(-50%, -50%) rotate(45deg); }
+.cb-x::after  { transform: translate(-50%, -50%) rotate(-45deg); }
 .cb-x:hover { background: rgba(255, 255, 255, 0.16); color: #fff; }
 
 .cb-log { flex: 1; min-height: 0; overflow-y: auto; padding: 16px 16px 8px; display: flex; flex-direction: column; gap: 10px; }
@@ -183,7 +190,13 @@
 .cbs-q:focus, .cbs-a:focus, .cbs-kw:focus, .cbs-imp input:focus { outline: none; border-color: var(--ieg-red); box-shadow: 0 0 0 3px rgba(237, 28, 36, 0.1); }
 .cbs-imp { display: flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 800; letter-spacing: 0.08em; color: var(--ink-muted-48, #7a7a7a); flex-shrink: 0; }
 .cbs-imp input { width: 50px; border: 1px solid var(--hairline, #e0e0e0); border-radius: 7px; padding: 7px; font-family: inherit; font-size: 13px; text-align: center; color: var(--ink, #1d1d1f); }
-.cbs-del { width: 34px; height: 34px; flex-shrink: 0; border-radius: 8px; border: 1px solid var(--hairline, #e0e0e0); background: #fff; color: var(--ink-muted-48, #7a7a7a); cursor: pointer; font-size: 13px; transition: all 0.16s; }
+.cbs-del { position: relative; width: 34px; height: 34px; flex-shrink: 0; border-radius: 8px; border: 1px solid var(--hairline, #e0e0e0); background: #fff; color: var(--ink-muted-48, #7a7a7a); cursor: pointer; transition: all 0.16s; }
+.cbs-del::before, .cbs-del::after {
+  content: ''; position: absolute; top: 50%; left: 50%;
+  width: 12px; height: 1.5px; background: currentColor; border-radius: 1px;
+}
+.cbs-del::before { transform: translate(-50%, -50%) rotate(45deg); }
+.cbs-del::after  { transform: translate(-50%, -50%) rotate(-45deg); }
 .cbs-del:hover { background: var(--ieg-red); color: #fff; border-color: var(--ieg-red); }
 
 .cbs-drag {

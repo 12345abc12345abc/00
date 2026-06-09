@@ -532,22 +532,25 @@
   flex-shrink: 0;
 }
 .vs-del {
+  position: relative;
   margin-left: auto;
   width: 28px;
   height: 28px;
   border-radius: 6px;
   background: rgba(237,28,36,0.1);
   color: rgba(237,28,36,0.7);
-  font-size: 13px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
   border: none;
   font-family: inherit;
   transition: background 0.18s, color 0.18s;
   flex-shrink: 0;
 }
+.vs-del::before, .vs-del::after {
+  content: ''; position: absolute; top: 50%; left: 50%;
+  width: 11px; height: 1.5px; background: currentColor; border-radius: 1px;
+}
+.vs-del::before { transform: translate(-50%, -50%) rotate(45deg); }
+.vs-del::after  { transform: translate(-50%, -50%) rotate(-45deg); }
 .vs-del:hover { background: var(--ieg-red, #ED1C24); color: #fff; }
 
 .vs-field { margin-bottom: 13px; }
