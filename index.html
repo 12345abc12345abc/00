@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IEG INSIGHT</title>
+<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="studio.css">
+<link rel="stylesheet" href="chatbot.css">
+<link rel="stylesheet" href="video.css">
+<link rel="stylesheet" href="space-hub.css">
+</head>
+<body>
+
+<!-- ───────── Hub title screen (IEG INSIGHT) ───────── -->
+<div id="hub">
+  <canvas id="space-canvas"></canvas>
+  <div class="sp-vignette"></div>
+
+  <!-- top menu bar -->
+  <nav class="sp-topmenu" id="sp-topmenu">
+    <button class="sp-menu-brand" data-go="0" aria-label="IEG INSIGHT"><span class="mb-ieg">IEG</span> INSIGHT</button>
+    <div class="sp-menu-links">
+      <button class="sp-menu-link" data-go="1">회사 소개서</button>
+      <button class="sp-menu-link" data-go="2">투자 라운드</button>
+      <button class="sp-menu-link" data-go="3">영상</button>
+      <button class="sp-menu-link" data-go="4">자료실</button>
+      <button class="sp-menu-link" data-go="5">관리자 모드</button>
+    </div>
+  </nav>
+
+  <!-- right-side section progress -->
+  <div class="sp-dots" id="sp-dots">
+    <button class="sp-dot" data-go="0" aria-label="IEG INSIGHT"></button>
+    <button class="sp-dot" data-go="1" aria-label="COMPANY PROFILE"></button>
+    <button class="sp-dot" data-go="2" aria-label="INVESTOR RELATIONS"></button>
+    <button class="sp-dot" data-go="3" aria-label="VIDEO"></button>
+    <button class="sp-dot" data-go="4" aria-label="LIBRARY"></button>
+    <button class="sp-dot" data-go="5" aria-label="ADMIN MODE"></button>
+  </div>
+
+  <!-- scroll-driven journey through deep space -->
+  <div class="space-scroll" id="space-scroll">
+
+    <!-- 00 · title -->
+    <section class="sp-sec sp-hero" data-sec="0" data-screen-label="HERO">
+      <div class="sp-hero-inner">
+        <h1 class="sp-title"><span class="ti-ieg">IEG</span> <span class="ti-insight">INSIGHT</span></h1>
+        <div class="sp-hero-rule"><span class="hr-line"></span><span class="hr-dot"></span><span class="hr-line r"></span></div>
+      </div>
+      <div class="sp-scrollcue" id="sp-cue"><span class="cue-mouse"></span>SCROLL</div>
+    </section>
+
+    <!-- 01 · COMPANY PROFILE -->
+    <section class="sp-sec sp-item" data-sec="1" data-id="company" data-screen-label="COMPANY PROFILE">
+      <div class="sp-panel">
+        <div class="sp-eyebrow">01</div>
+        <div class="sp-titles">
+          <h2 class="sp-en">COMPANY<br>PROFILE</h2>
+          <div class="sp-ko">회사 소개서</div>
+        </div>
+        <div class="sp-actions" id="act-company">
+          <button class="sp-cta" onclick="spOpen('company')">슬라이드 쇼 <span class="cta-ar"><svg width="8" height="13" viewBox="0 0 7 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 1 6 6 1 11"/></svg></span></button>
+          <div class="sp-controls">
+            <select class="lz-lang-select sp-lang" aria-label="언어 선택" onchange="spStage('company', this.value)"></select>
+            <button class="sp-btn apply" onclick="spApply('company')">적용</button>
+            <button class="sp-btn start" onclick="spStart('company')">시작</button>
+            <button class="sp-btn back" onclick="spClose('company')" aria-label="이전" title="이전"><svg width="8" height="13" viewBox="0 0 7 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 1 1 6 6 11"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 · INVESTOR RELATIONS -->
+    <section class="sp-sec sp-item" data-sec="2" data-id="ir" data-screen-label="INVESTOR RELATIONS">
+      <div class="sp-panel">
+        <div class="sp-eyebrow">02</div>
+        <div class="sp-titles">
+          <h2 class="sp-en">INVESTOR<br>RELATIONS</h2>
+          <div class="sp-ko">투자 라운드</div>
+        </div>
+        <div class="sp-actions" id="act-ir">
+          <button class="sp-cta" onclick="spOpen('ir')">슬라이드 쇼 <span class="cta-ar"><svg width="8" height="13" viewBox="0 0 7 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 1 6 6 1 11"/></svg></span></button>
+          <div class="sp-controls">
+            <select class="lz-lang-select sp-lang" aria-label="언어 선택" onchange="spStage('ir', this.value)"></select>
+            <button class="sp-btn apply" onclick="spApply('ir')">적용</button>
+            <button class="sp-btn start" onclick="spStart('ir')">시작</button>
+            <button class="sp-btn back" onclick="spClose('ir')" aria-label="이전" title="이전"><svg width="8" height="13" viewBox="0 0 7 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 1 1 6 6 11"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 · VIDEO -->
+    <section class="sp-sec sp-item" data-sec="3" data-id="video" data-screen-label="VIDEO">
+      <div class="sp-panel">
+        <div class="sp-eyebrow">03</div>
+        <div class="sp-titles">
+          <h2 class="sp-en">VIDEO</h2>
+          <div class="sp-ko">영상</div>
+        </div>
+        <div class="sp-actions">
+          <button class="sp-cta" onclick="openVideoHub()">영상 보기 <span class="cta-ar"><svg width="8" height="13" viewBox="0 0 7 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 1 6 6 1 11"/></svg></span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · LIBRARY -->
+    <section class="sp-sec sp-item" data-sec="4" data-id="video2" data-screen-label="LIBRARY">
+      <div class="sp-panel">
+        <div class="sp-eyebrow">04</div>
+        <div class="sp-titles">
+          <h2 class="sp-en">LIBRARY</h2>
+          <div class="sp-ko">자료실</div>
+        </div>
+        <div class="sp-actions">
+          <button class="sp-cta" onclick="openVideo2Hub()">콘텐츠 보기 <span class="cta-ar"><svg width="8" height="13" viewBox="0 0 7 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 1 6 6 1 11"/></svg></span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 · ADMIN MODE — distinct secure-console treatment -->
+    <section class="sp-sec sp-item sp-admin" data-sec="5" data-id="admin" data-screen-label="ADMIN MODE">
+      <div class="sp-panel">
+        <div class="sp-titles">
+          <h2 class="sp-en adm-en">ADMIN MODE</h2>
+          <div class="sp-ko">관리자 모드</div>
+        </div>
+        <div class="sp-actions">
+          <button class="sp-cta admin admin-icon" onclick="openPwGate()" aria-label="관리자 모드 진입" title="관리자 모드 진입"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- ───────── Edit-mode hub (편집 모드 선택) ───────── -->
+<div id="edit-hub" style="display:none">
+  <div class="adm-vignette"></div>
+  <div class="lz-top hub-top">
+    <button class="lz-home" onclick="closeEditHub()" title="IEG INSIGHT" aria-label="IEG INSIGHT"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></button>
+  </div>
+  <div class="adm-stage">
+    <div class="adm-head">
+      <div class="adm-kicker"><span class="kk-bar"></span>IEG INSIGHT</div>
+      <h1 class="adm-title">ADMIN MODE</h1>
+      <div class="adm-sub">관리자 모드 · 편집할 콘텐츠를 선택하세요</div>
+    </div>
+    <div class="adm-grid">
+      <button class="adm-card" onclick="editChoose('company')">
+        <span class="adm-num">01</span>
+        <span class="adm-card-body">
+          <span class="adm-en">COMPANY PROFILE</span>
+          <span class="adm-ko">회사 소개서</span>
+        </span>
+        <span class="adm-go"><svg width="7" height="12" viewBox="0 0 7 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 1 6 6 1 11"/></svg></span>
+      </button>
+      <button class="adm-card" onclick="editChoose('ir')">
+        <span class="adm-num">02</span>
+        <span class="adm-card-body">
+          <span class="adm-en">INVESTOR RELATIONS</span>
+          <span class="adm-ko">투자 라운드</span>
+        </span>
+        <span class="adm-go"><svg width="7" height="12" viewBox="0 0 7 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 1 6 6 1 11"/></svg></span>
+      </button>
+      <button class="adm-card" onclick="editChoose('video')">
+        <span class="adm-num">03</span>
+        <span class="adm-card-body">
+          <span class="adm-en">VIDEO</span>
+          <span class="adm-ko">영상</span>
+        </span>
+        <span class="adm-go"><svg width="7" height="12" viewBox="0 0 7 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 1 6 6 1 11"/></svg></span>
+      </button>
+      <button class="adm-card" onclick="editChoose('video2')">
+        <span class="adm-num">04</span>
+        <span class="adm-card-body">
+          <span class="adm-en">LIBRARY</span>
+          <span class="adm-ko">자료실</span>
+        </span>
+        <span class="adm-go"><svg width="7" height="12" viewBox="0 0 7 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 1 6 6 1 11"/></svg></span>
+      </button>
+      <button class="adm-card" onclick="editChoose('chatbot')">
+        <span class="adm-num">05</span>
+        <span class="adm-card-body">
+          <span class="adm-en">CHATBOT</span>
+          <span class="adm-ko">챗봇</span>
+        </span>
+        <span class="adm-go"><svg width="7" height="12" viewBox="0 0 7 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 1 6 6 1 11"/></svg></span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ───────── Title screen (game-style main menu) ───────── -->
+<div id="landing" style="display:none">
+  <div class="lz-bg"></div>
+  <div class="lz-grid"></div>
+  <div class="lz-beam"></div>
+  <div class="lz-scan"></div>
+
+  <div class="lz-top">
+    <button class="lz-home" onclick="backToHub()" title="IEG INSIGHT" aria-label="IEG INSIGHT"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></button>
+  </div>
+
+  <div class="lz-stage">
+    <h1 class="lz-title" id="lz-title">
+      <span class="t-ieg">IEG</span><br>
+      <span class="t-line2">INVESTOR</span><br>
+      <span class="t-line3">RELATIONS</span>
+    </h1>
+
+    <div class="lz-menu">
+      <button class="lz-btn primary" id="lz-present" onclick="enterStudio(true)">
+        슬라이드 쇼 <span class="lz-ar"><svg width="7" height="12" viewBox="0 0 7 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 1 6 6 1 11"/></svg></span>
+      </button>
+      <select class="lz-lang-select" aria-label="언어 선택" onchange="stageLang(this.value)"></select>
+      <button class="lz-apply" id="lz-apply" onclick="applyLang()">적용</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- ───────── Password gate (편집 모드) ───────── -->
+<div id="pw-gate">
+  <div class="pw-card">
+    <div class="pw-title">관리자 모드</div>
+    <div class="pw-sub">비밀번호를 입력하세요</div>
+    <input id="pw-input" class="pw-input" type="password" inputmode="numeric" autocomplete="off" aria-label="비밀번호">
+    <div class="pw-actions">
+      <button class="pw-cancel" onclick="closePwGate()">취소</button>
+      <button class="pw-go" onclick="submitPw()">입력</button>
+    </div>
+    <div id="pw-err" class="pw-err"></div>
+  </div>
+</div>
+
+<!-- ───────── Studio chrome ───────── -->
+<div id="topbar">
+  <div class="brand">
+    <button class="btn btn-ghost home-btn" onclick="backToEditHub()" title="편집 선택으로"><span class="home-ar"><svg width="7" height="12" viewBox="0 0 7 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 1 1 6 6 11"/></svg></span> 뒤로</button>
+    <div class="brand-text"><span class="brand-ieg">IEG</span> INVESTOR RELATIONS</div>
+  </div>
+  <div class="bar-actions">
+    <div class="trans-group" title="언어를 고른 뒤 ‘적용’을 눌러 번역합니다">
+      <select class="lang-select" aria-label="언어 전환" onchange="stageLang(this.value)"></select>
+      <button class="btn btn-apply" id="bar-apply" onclick="applyLang()" title="선택한 언어로 번역 적용">적용</button>
+    </div>
+    <span class="bar-sep"></span>
+    <button class="btn btn-ghost" onclick="exportStructure()" title="수정된 발표자료 내용(슬라이드 데이터)만 JSON으로 저장합니다">수정 데이터 내보내기</button>
+    <button class="btn btn-ghost" onclick="savePDF()" title="PDF로 저장 (애니메이션 종료 화면 기준)">PDF 저장</button>
+    <button class="btn btn-ghost" onclick="resetAll()" title="모든 편집 내용 초기화">초기화</button>
+    <button class="btn btn-primary" id="present-btn" onclick="startShow()" title="전체화면 슬라이드 쇼">슬라이드 쇼</button>
+  </div>
+</div>
+
+<div id="main">
+  <aside id="sidebar">
+    <div class="sb-hdr">SLIDES</div>
+    <ol id="slide-list"></ol>
+  </aside>
+
+  <section id="preview-area">
+    <div id="stage">
+      <button class="nav-arr" id="arr-prev" onclick="nav(-1)" aria-label="이전">
+        <span class="arr-icon"><svg width="10" height="17" viewBox="0 0 10 17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="8 1 1 8.5 8 16"/></svg></span>
+      </button>
+      <div id="slide-wrap">
+        <iframe id="sf" scrolling="no" title="slide preview"></iframe>
+      </div>
+      <button class="nav-arr" id="arr-next" onclick="nav(1)" aria-label="다음">
+        <span class="arr-icon"><svg width="10" height="17" viewBox="0 0 10 17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 1 9 8.5 2 16"/></svg></span>
+      </button>
+    </div>
+    <div id="status-bar">
+      <span id="sctr">01 / 29</span>
+      <span class="dot">·</span>
+      <span id="stitle">표지</span>
+      <span class="dot">·</span>
+      <button class="re-anim" onclick="goTo(cur)" title="애니메이션 다시 재생">애니메이션 재생</button>
+    </div>
+    <!-- translating toast (preview 영역 우측 하단) -->
+    <div id="trans-toast"><span class="ts-spin"></span><span id="ts-text">번역 중…</span></div>
+  </section>
+
+  <aside id="ep">
+    <div class="ep-hdr">
+      <span class="ep-t">슬라이드 편집</span>
+      <span class="ep-n" id="ep-n">#01 / 29</span>
+    </div>
+    <div id="ep-body"></div>
+    <div class="ep-foot">
+      <button class="apply-btn" onclick="goTo(cur)">미리보기 업데이트 · 애니메이션 재생</button>
+    </div>
+  </aside>
+</div>
+
+<!-- Full-screen slideshow overlay -->
+<div id="fs-ov">
+  <iframe id="fs-fr" scrolling="no" title="presentation"></iframe>
+  <iframe id="fs-fr-b" scrolling="no" title="presentation"></iframe>
+  <div id="fs-hit"></div>
+  <div id="fs-inf"></div>
+  <button id="fs-cl" onclick="endShow()" aria-label="닫기"></button>
+  <button id="fs-prv" onclick="fsNav(-1)" aria-label="이전"><svg width="10" height="17" viewBox="0 0 10 17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="8 1 1 8.5 8 16"/></svg></button>
+  <button id="fs-nxt" onclick="fsNav(1)" aria-label="다음"><svg width="10" height="17" viewBox="0 0 10 17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 1 9 8.5 2 16"/></svg></button>
+</div>
+
+<!-- 모바일 하단 탭바 (편집 모드 전용) -->
+<nav id="mob-tabbar">
+  <button class="mob-tab" data-tab="preview" onclick="mobTab('preview')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="12" rx="2"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="17" x2="12" y2="20"/></svg>
+    <span>미리보기</span>
+  </button>
+  <button class="mob-tab" data-tab="list" onclick="mobTab('list')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="9" y1="6" x2="20" y2="6"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="18" x2="20" y2="18"/><circle cx="5" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="5" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="5" cy="18" r="1.5" fill="currentColor" stroke="none"/></svg>
+    <span>슬라이드</span>
+  </button>
+  <button class="mob-tab" data-tab="edit" onclick="mobTab('edit')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+    <span>편집</span>
+  </button>
+</nav>
+
+<!-- PDF rendering scratch -->
+<div id="pdf-scratch" aria-hidden="true"></div>
+
+<!-- PDF progress modal -->
+<div id="pdf-modal">
+  <div class="pdf-card">
+    <div class="pdf-title">PDF 생성 중</div>
+    <div class="pdf-progress"><div id="pdf-bar"></div></div>
+    <div class="pdf-status" id="pdf-status">준비 중...</div>
+  </div>
+</div>
+
+<!-- External libs (CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
+<!-- App scripts -->
+<script src="slide-data.js"></script>
+<script src="company-data.js"></script>
+<script src="chatbot-data.js"></script>
+<script src="video-data.js"></script>
+<script src="video2-data.js"></script>
+<script src="slide-styles.js"></script>
+<script src="slide-renderer-1.js"></script>
+<script src="slide-renderer-2.js"></script>
+<script src="slide-renderer-3.js"></script>
+<script src="company-renderers.js"></script>
+<script src="slide-editor.js"></script>
+<script src="app.js"></script>
+<script src="studio.js"></script>
+<script src="decks.js"></script>
+<script src="chatbot.js"></script>
+<script src="video.js"></script>
+<script src="video2.js"></script>
+<script src="hub-fx.js"></script>
+<script src="space-hub.js"></script>
+</body>
+</html>
